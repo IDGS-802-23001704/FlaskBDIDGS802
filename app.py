@@ -72,6 +72,34 @@ def detalles():
                            apaterno=alum1.apaterno, 
                            email=alum1.email)
 
+@app.route("/eliminar", methods=['GET', 'POST'])
+def eliminar():
+    create_form = forms.UserForm2(request.form)
+    
+    if request.method == 'GET':
+        id = request.args.get('id')
+        alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+        
+        if not alum1:
+            return redirect(url_for('index'))
+        create_form.id.data = alum1.id
+        create_form.nombre.data = alum1.nombre
+        create_form.apaterno.data = alum1.apaterno
+        
+        return render_template("eliminar.html", form=create_form)
+        
+    if request.method == 'POST':
+        id = create_form.id.data
+        alum1 = db.session.query(Alumnos).filter(Alumnos.id == id).first()
+        
+        if alum1:
+            db.session.delete(alum1)
+            db.session.commit()
+            
+        return redirect(url_for('index'))
+
+
+
 if __name__ == '__main__':
 	csrf.init_app(app)
 	with app.app_context():
