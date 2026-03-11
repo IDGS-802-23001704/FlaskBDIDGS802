@@ -8,10 +8,14 @@ import forms
 from models import db
 from models import Alumnos
 
+from flask_migrate import Migrate
+
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
 db.init_app(app)
 csrf=CSRFProtect()
+
+migrate = Migrate(app, db)
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index")
