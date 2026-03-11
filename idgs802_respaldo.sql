@@ -34,7 +34,7 @@ CREATE TABLE `alembic_version` (
 
 LOCK TABLES `alembic_version` WRITE;
 /*!40000 ALTER TABLE `alembic_version` DISABLE KEYS */;
-INSERT INTO `alembic_version` VALUES ('37d29b3bdb1e');
+INSERT INTO `alembic_version` VALUES ('bbc5bb39e5ac');
 /*!40000 ALTER TABLE `alembic_version` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -50,8 +50,8 @@ CREATE TABLE `alumnos` (
   `nombre` varchar(50) DEFAULT NULL,
   `apellidos` varchar(200) DEFAULT NULL,
   `telefono` varchar(20) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -62,7 +62,7 @@ CREATE TABLE `alumnos` (
 
 LOCK TABLES `alumnos` WRITE;
 /*!40000 ALTER TABLE `alumnos` DISABLE KEYS */;
-INSERT INTO `alumnos` VALUES (1,'Ana','Lopez','5551234567','2026-03-11 14:09:50','ana.lopez@gmail.com'),(2,'Luis','Martinez','5559876543','2026-03-11 14:09:50','luis.martinez@hotmail.com'),(3,'Sofia','Ramirez','5554567890','2026-03-11 14:09:50','sofia.ramirez@outlook.com'),(4,'Diego','Torres','5557890123','2026-03-11 14:09:50','diego.torres@yahoo.com'),(5,'Laura','Sanchez','5553216549','2026-03-11 14:09:50','laura.sanchez@gmail.com');
+INSERT INTO `alumnos` VALUES (1,'Anita','Lopez','5551234567','ana.lopez@gmail.com','2026-03-11 15:10:15'),(2,'Luisa','Martinez','5559876543','luisa.martinez@hotmail.com','2026-03-11 15:10:15'),(3,'Sofia','Ramirez','5554567890','sofia.ramirez@outlook.com','2026-03-11 15:10:15'),(4,'Diego','Torres','5557890123','diego.torres@yahoo.com','2026-03-11 15:10:15');
 /*!40000 ALTER TABLE `alumnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,7 +78,7 @@ CREATE TABLE `maestros` (
   `nombre` varchar(50) DEFAULT NULL,
   `apellidos` varchar(200) DEFAULT NULL,
   `especialidad` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `correo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`matricula`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -102,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-03-11 14:17:52
+-- Dump completed on 2026-03-11 15:30:14

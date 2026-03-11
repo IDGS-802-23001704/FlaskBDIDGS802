@@ -6,6 +6,8 @@
     <form action="" method="POST" class="max-w-sm mx-auto space-y-4">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         
+        {{ form.matricula(type="hidden") }}
+        
         <div class="relative z-0 w-full mb-5 group">
             {{macros.campoNuevo(form.nombre, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
         </div>
@@ -20,8 +22,8 @@
         </div>
 
         <div class="flex gap-4 mt-6">
-            <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
-                Guardar
+            <button type="submit" class="w-full text-warning bg-neutral-primary border border-warning hover:bg-warning hover:text-white focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
+                Actualizar
             </button>
             <a href="{{ url_for('maestros.dashboardMaestro') }}" class="w-full text-center text-body bg-neutral-primary border border-default-medium hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
                 Cancelar

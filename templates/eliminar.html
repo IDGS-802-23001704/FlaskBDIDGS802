@@ -1,44 +1,39 @@
 {% extends "layout.html" %}
 
 {% block container %}
-
 {% import "_macros.html" as macros %}
 
 <div class="mt-10">
-<form method="POST" action="{{ url_for('eliminar') }}" class="max-w-sm mx-auto space-y-4">
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-
-    {{ form.id(type="hidden") }}
-
-    <div class="relative z-0 w-full mb-5 group">
-        {{macros.campoNuevo(form.nombre, readonly=True, class="block py-2.5 px-0 w-full text-sm 
-        text-heading bg-transparent border-0 border-b-2 border-default-medium
-        appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}} 
-    </div>
-
-    <div class="relative z-0 w-full mb-5 group">
-        {{macros.campoNuevo(form.apaterno, readonly=True, class="block py-2.5 px-0 w-full text-sm 
-        text-heading bg-transparent border-0 border-b-2 border-default-medium
-        appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}} 
-    </div>
-
-    <div class="relative z-0 w-full mb-5 group">
-        {{macros.campoNuevo(form.email, readonly=True, class="block py-2.5 px-0 w-full text-sm 
-        text-heading bg-transparent border-0 border-b-2 border-default-medium
-        appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}} 
-    </div>
-
-    <div class="flex gap-4">
-        <button type="submit" style="background-color: #dc2626; color: white;" class="text-white box-border border border-transparent focus:ring-4 focus:ring-danger-medium shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none w-full">
-            Eliminar
-        </button>
+    <form method="POST" action="eliminar" class="max-w-sm mx-auto space-y-4">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         
-        <a href="{{ url_for('index') }}" style="background-color: transparent; color: #1f2937; border: 1px solid #d1d5db;" class="text-center box-border focus:ring-4 focus:ring-warning-medium shadow-xs font-medium leading-5 rounded-full text-sm px-4 py-2.5 focus:outline-none w-full">
-            Cancelar
-        </a>
-    </div>
-    
-</form>
+        {{ form.id(type="hidden") }}
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.nombre, readonly=True, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}} 
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.apellidos, readonly=True, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}} 
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.correo, readonly=True, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}} 
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.telefono, readonly=True, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}} 
+        </div>
+
+        <div class="flex gap-4 mt-6">
+            <button type="submit" class="w-full text-danger bg-neutral-primary border border-danger hover:bg-danger hover:text-white focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
+                Eliminar
+            </button>
+            <a href="index" class="w-full text-center text-body bg-neutral-primary border border-default-medium hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">
+                Cancelar
+            </a>
+        </div>
+    </form>
 </div>
 
 {% endblock %}

@@ -9,7 +9,7 @@ class Alumnos(db.Model):
     nombre=db.Column(db.String(50))
     apellidos=db.Column(db.String(200))
     telefono=db.Column(db.String(20))
-    email=db.Column(db.String(50))
+    correo=db.Column(db.String(50))
     created_date=db.Column(db.DateTime, default=datetime.datetime.now)
     
 class Maestros(db.Model):
@@ -18,7 +18,7 @@ class Maestros(db.Model):
     nombre = db.Column(db.String(50))
     apellidos = db.Column(db.String(200))
     especialidad = db.Column(db.String(50))
-    email = db.Column(db.String(50))
+    correo = db.Column(db.String(50))
 
 
 
