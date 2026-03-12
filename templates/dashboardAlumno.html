@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<div class="relative overflow-x-auto py-5">
+    <div class="flex justify-start mb-6 mt-2">
+        <a href="alumnos" style="background-color: #2563eb; color: #ffffff; padding: 10px 32px; border-radius: 8px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
+            Agregar Alumno
+        </a>
+    </div>
+    
+    <table class="w-full text-sm text-left rtl:text-right text-body mt-4">
+        <thead class="text-sm text-body bg-neutral-secondary-medium">
+            <tr>
+                <th scope="col" class="px-6 py-3 rounded-s-base font-medium">Nombre</th>
+                <th scope="col" class="px-6 py-3 font-medium">Apellidos</th>
+                <th scope="col" class="px-6 py-3 font-medium">Correo</th>
+                <th scope="col" class="px-6 py-3 font-medium">Teléfono</th>
+                
+                <th scope="col" class="px-6 py-3 font-medium text-green-700">Inscribir</th> 
+                
+                <th scope="col" class="px-6 py-3 font-medium">Editar</th>
+                <th scope="col" class="px-6 py-3 font-medium">Detalles</th>
+                <th scope="col" class="px-6 py-3 rounded-e-base font-medium">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alum in alumnos %}
+            <tr class="bg-neutral-primary border-b border-default">
+                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+                    {{alum.nombre}}
+                </th>
+                <td class="px-6 py-4">{{alum.apellidos}}</td>
+                <td class="px-6 py-4">{{alum.correo}}</td>
+                <td class="px-6 py-4">{{alum.telefono}}</td>
+                
+                <td class="px-6 py-4">
+                    <a href="{{ url_for('inscripciones.inscribir', alumno_id=alum.id) }}" 
+                    style="background-color: #16a34a; color: white; padding: 8px 16px; border-radius: 6px; font-weight: 500; text-decoration: none; white-space: nowrap;">
+                    + Curso
+                    </a>
+                </td>
+                
+                <td class="px-6 py-4">
+                    <a href="{{ url_for('modificar', id=alum.id) }}" class="inline-block text-warning bg-neutral-primary border border-warning hover:bg-warning hover:text-white focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-lg text-sm px-4 py-2 focus:outline-none transition-colors">Modificar</a>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="{{ url_for('detalles', id=alum.id) }}" class="inline-block text-fg-brand bg-neutral-primary border border-brand hover:bg-brand hover:text-white focus:ring-4 focus:ring-brand-subtle font-medium leading-5 rounded-lg text-sm px-4 py-2 focus:outline-none transition-colors">Detalles</a>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="{{ url_for('eliminar', id=alum.id) }}" style="color: #dc2626; border-color: #dc2626;" class="inline-block bg-transparent border hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-red-300 font-medium leading-5 rounded-lg text-sm px-4 py-2 transition-colors">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

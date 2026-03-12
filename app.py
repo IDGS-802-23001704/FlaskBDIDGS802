@@ -11,6 +11,8 @@ from models import Alumnos
 from flask_migrate import Migrate
 
 from maestros.routes import maestros_bp
+from cursos.routes import cursos_bp
+from inscripciones.routes import inscripciones_bp
 
 
 
@@ -22,13 +24,20 @@ csrf=CSRFProtect()
 migrate = Migrate(app, db)
 
 app.register_blueprint(maestros_bp)
+app.register_blueprint(cursos_bp)
+app.register_blueprint(inscripciones_bp)
+
 
 @app.route("/", methods=["GET", "POST"])
 @app.route("/index")
 def index():
-    create_form = forms.UserForm2(request.form)
+    return render_template("index.html")
+
+@app.route("/dashboardAlumno", methods=["GET"])
+def dashboardAlumno():
     alumnos = Alumnos.query.all()
-    return render_template("index.html", form=create_form, alumnos=alumnos)
+    return render_template("dashboardAlumno.html", alumnos=alumnos)
+
 
 @app.errorhandler(404)
 def page_not_fount(e):

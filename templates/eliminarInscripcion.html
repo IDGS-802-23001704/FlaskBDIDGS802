@@ -1,0 +1,24 @@
+{% extends "layout.html" %} 
+{% block container %} 
+
+<div class="mt-10">
+    <form action="" method="POST" class="max-w-sm mx-auto space-y-4 bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        {{ form.id(type="hidden") }}
+        <h2 class="text-2xl font-bold mb-6 text-red-600 border-b pb-2 text-center">Eliminar Inscripción</h2>
+        
+        <div class="text-center mb-6">
+            <p class="text-gray-700 font-medium">¿Estás seguro de que deseas eliminar la inscripción #{{ inscripcion.id }}?</p>
+        </div>
+
+        <div style="display: flex; gap: 16px; margin-top: 24px;">
+            <button type="submit" style="background-color: #dc2626; color: #ffffff; padding: 10px 16px; border-radius: 9999px; font-weight: 500; border: none; cursor: pointer; width: 100%;">
+                Eliminar
+            </button>
+            <a href="{{ url_for('inscripciones.dashboardInscripcion') }}" style="background-color: transparent; color: #1f2937; padding: 10px 16px; border-radius: 9999px; font-weight: 500; border: 1px solid #d1d5db; text-decoration: none; cursor: pointer; text-align: center; width: 100%;">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

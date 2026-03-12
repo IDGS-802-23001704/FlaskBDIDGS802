@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block container %}
+
+<div class="relative overflow-x-auto py-5">
+    <div style="display: flex; margin-bottom: 24px; margin-top: 8px;">
+        <a href="{{ url_for('inscripciones.inscribir') }}" style="background-color: #2563eb; color: #ffffff; padding: 10px 32px; border-radius: 8px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
+            Nueva Inscripción
+        </a>
+    </div>
+
+    <table class="w-full text-sm text-left rtl:text-right text-body mt-4">
+        <thead class="text-sm text-body bg-neutral-secondary-medium">
+            <tr>
+                <th scope="col" class="px-6 py-3 rounded-s-base font-medium">Folio</th>
+                <th scope="col" class="px-6 py-3 font-medium">Alumno</th>
+                <th scope="col" class="px-6 py-3 font-medium">Curso</th>
+                <th scope="col" class="px-6 py-3 rounded-e-base font-medium">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for insc in inscripciones %}
+            <tr class="bg-neutral-primary border-b border-default">
+                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">{{ insc.id }}</th>
+                <td class="px-6 py-4">{{ alumnos_dict.get(insc.alumno_id, 'Desconocido') }}</td>
+                <td class="px-6 py-4">{{ cursos_dict.get(insc.curso_id, 'Desconocido') }}</td>
+                <td class="px-6 py-4">
+                    <a href="{{ url_for('inscripciones.eliminarInscripcion', id=insc.id) }}" style="color: #dc2626; border-color: #dc2626;" class="inline-block bg-transparent border hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-red-300 font-medium leading-5 rounded-lg text-sm px-4 py-2 transition-colors">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

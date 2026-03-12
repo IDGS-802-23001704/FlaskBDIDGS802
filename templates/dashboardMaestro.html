@@ -6,7 +6,7 @@
 <div class="relative overflow-x-auto py-5">
     
     <div class="flex justify-start mb-6 mt-2">
-        <a href="{{ url_for('maestros.agregarMaestro') }}" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2.5 focus:outline-none transition-colors shadow-sm">
+        <a href="{{ url_for('maestros.agregarMaestro') }}" style="background-color: #2563eb; color: #ffffff; padding: 10px 32px; border-radius: 8px; font-weight: 500; text-decoration: none; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);">
             Agregar Maestro
         </a>
     </div>
@@ -39,8 +39,12 @@
                     <a href="{{ url_for('maestros.detallesMaestro', matricula=mae.matricula) }}" class="inline-block text-fg-brand bg-neutral-primary border border-brand hover:bg-brand hover:text-white focus:ring-4 focus:ring-brand-subtle font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Detalles</a>
                 </td>
                 <td class="px-6 py-4">
-                    <a href="{{ url_for('maestros.eliminarMaestro', matricula=mae.matricula) }}" class="inline-block text-danger bg-neutral-primary border border-danger hover:bg-danger hover:text-white focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</a>
-                </td>
+                    <a href="{{ url_for('maestros.eliminarMaestro', matricula=mae.matricula) }}" 
+                    style="color: #dc2626; border-color: #dc2626;" 
+                    class="inline-block bg-transparent border hover:bg-red-600 hover:text-white focus:ring-4 focus:ring-red-300 font-medium leading-5 rounded-lg text-sm px-4 py-2 transition-colors">
+                    Eliminar
+                    </a>
+</td>
             </tr>
             {% endfor %}
         </tbody>

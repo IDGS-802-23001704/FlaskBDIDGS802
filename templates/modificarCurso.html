@@ -1,0 +1,26 @@
+{% extends "layout.html" %} 
+{% block container %} 
+{% import "_macros.html" as macros %}
+
+<div class="mt-10">
+    <form action="" method="POST" class="max-w-sm mx-auto space-y-4">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        {{ form.id(type="hidden") }}
+        
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.nombre, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.descripcion, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.maestro_id, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+        </div>
+
+        <div class="flex gap-4 mt-6">
+            <button type="submit" class="w-full text-warning bg-neutral-primary border border-warning hover:bg-warning hover:text-white focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">Modificar</button>
+            <a href="{{ url_for('cursos.dashboardCurso') }}" class="w-full text-center text-body bg-neutral-primary border border-default-medium hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none transition-colors">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
